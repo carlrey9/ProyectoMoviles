@@ -1,0 +1,7 @@
+Time : 16:16:11
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`cedula="123"' at line 1
+Raw SQL : SELECT count(*) as total FROM `staff_ingreso` WHERE `cedula="123"
+
+Time : 16:15:33
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`cedula="123"' at line 1
+Raw SQL : SELECT count(*) as total FROM `staff_ingreso` WHERE `cedula="123"
