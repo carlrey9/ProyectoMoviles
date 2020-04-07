@@ -1,0 +1,2 @@
+rootProject.name='coordenadas'
+include ':app'
