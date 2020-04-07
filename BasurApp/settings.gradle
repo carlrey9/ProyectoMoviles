@@ -1,0 +1,2 @@
+rootProject.name='BasurApp'
+include ':app'
