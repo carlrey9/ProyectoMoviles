@@ -6,7 +6,9 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3d6b052-dad3-4c76-b2d9-4986c8c9ed20" name="Default Changelist" comment="" />
+    <list default="true" id="a3d6b052-dad3-4c76-b2d9-4986c8c9ed20" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../BasurApp/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BasurApp/.idea/gradle.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
