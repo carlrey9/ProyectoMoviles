@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "388242068600",
+    "firebase_url": "https://coordenadas-c16db.firebaseio.com",
+    "project_id": "coordenadas-c16db",
+    "storage_bucket": "coordenadas-c16db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388242068600:android:2317d2b1da28c41431098d",
+        "android_client_info": {
+          "package_name": "co.edu.unab.proyectomoviles.coordenadas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388242068600-ua8o9jqqden6jtnrauq7o8pg3a4ge8tr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdR3bbiMtdjl0fjCjDCw6jBm5GpNn09k0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388242068600-ua8o9jqqden6jtnrauq7o8pg3a4ge8tr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
