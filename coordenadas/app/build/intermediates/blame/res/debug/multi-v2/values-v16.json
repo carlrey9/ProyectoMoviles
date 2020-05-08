@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\Coordenadas\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jakle\\.gradle\\caches\\transforms-2\\files-2.1\\65648d1f2c95227ab193b3dd913500f8\\appcompat-v7-26.1.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\jakle\\.gradle\\caches\\transforms-2\\files-2.1\\6c5a1a33c151bf1b1b969a4997bc8337\\appcompat-1.1.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\jakle\\.gradle\\caches\\transforms-2\\files-2.1\\30c2c9865f53b929cd3822f62a67836d\\support-compat-26.1.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\jakle\\.gradle\\caches\\transforms-2\\files-2.1\\f2f927b416259c54838b452dbf09547f\\core-1.3.0-rc01\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
