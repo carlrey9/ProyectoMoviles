@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".registro">
+    tools:context=".Registro">
 
     <EditText
         android:id="@+id/edt_nombre_registro"
@@ -37,6 +37,22 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Edad"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edt_crear_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/texto_usuario"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/edt_crear_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/texto_contraseña"
         android:inputType="textPersonName" />
 
     <Button
