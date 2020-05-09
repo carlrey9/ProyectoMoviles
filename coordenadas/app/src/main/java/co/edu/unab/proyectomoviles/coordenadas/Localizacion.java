@@ -6,6 +6,8 @@ import android.location.LocationProvider;
 import android.os.Bundle;
 import android.util.Log;
 
+import co.edu.unab.proyectomoviles.coordenadas.view.MainActivity;
+
 public class Localizacion implements LocationListener {
 
     MainActivity mainActivity;

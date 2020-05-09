@@ -154,10 +154,10 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\ja
 		ADDED from C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app\src\main\AndroidManifest.xml:9:9-35
 	android:theme
 		ADDED from C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app\src\main\AndroidManifest.xml:14:9-40
-activity#co.edu.unab.proyectomoviles.coordenadas.MainActivity
+activity#co.edu.unab.proyectomoviles.coordenadas.view.MainActivity
 ADDED from C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app\src\main\AndroidManifest.xml:15:9-21:20
 	android:name
-		ADDED from C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app\src\main\AndroidManifest.xml:15:19-47
+		ADDED from C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app\src\main\AndroidManifest.xml:15:19-52
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app\src\main\AndroidManifest.xml:16:13-20:29
 action#android.intent.action.MAIN

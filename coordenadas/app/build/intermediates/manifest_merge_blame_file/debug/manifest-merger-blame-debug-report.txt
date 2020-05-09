@@ -50,9 +50,9 @@
 29        android:testOnly="true"
 30        android:theme="@style/AppTheme" >
 30-->C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app\src\main\AndroidManifest.xml:14:9-40
-31        <activity android:name="co.edu.unab.proyectomoviles.coordenadas.MainActivity" >
+31        <activity android:name="co.edu.unab.proyectomoviles.coordenadas.view.MainActivity" >
 31-->C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app\src\main\AndroidManifest.xml:15:9-21:20
-31-->C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app\src\main\AndroidManifest.xml:15:19-47
+31-->C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app\src\main\AndroidManifest.xml:15:19-52
 32            <intent-filter>
 32-->C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app\src\main\AndroidManifest.xml:16:13-20:29
 33                <action android:name="android.intent.action.MAIN" />

@@ -1,34 +1,63 @@
 {
   "project_info": {
-    "project_number": "1011336505100",
-    "firebase_url": "https://coordenadas-1b782.firebaseio.com",
-    "project_id": "coordenadas-1b782",
-    "storage_bucket": "coordenadas-1b782.appspot.com"
+    "project_number": "405562013129",
+    "firebase_url": "https://basurapp-9d96a.firebaseio.com",
+    "project_id": "basurapp-9d96a",
+    "storage_bucket": "basurapp-9d96a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1011336505100:android:87d2fa332aa07b65b50b29",
+        "mobilesdk_app_id": "1:405562013129:android:a68eae26ee8d2507362418",
         "android_client_info": {
-          "package_name": "co.edu.unab.proyectomoviles.coordenadas"
+          "package_name": "co.edu.unab.proyectomoviles.basurapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1011336505100-nmtq11paq5pmuomvosh5bl0vbq3gcea2.apps.googleusercontent.com",
+          "client_id": "405562013129-mqboa2mru2tdo46k72lhktrb4v86ov3u.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBrNFHWuco_qikXTR0TqufRLkfMJNnann0"
+          "current_key": "AIzaSyBd71LZ34PwrdHJvHr23rw6WZw7cvZQNH4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1011336505100-nmtq11paq5pmuomvosh5bl0vbq3gcea2.apps.googleusercontent.com",
+              "client_id": "405562013129-mqboa2mru2tdo46k72lhktrb4v86ov3u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405562013129:android:33e0bbc6a0bb6df8362418",
+        "android_client_info": {
+          "package_name": "co.edu.unab.proyectomoviles.coordenadas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405562013129-mqboa2mru2tdo46k72lhktrb4v86ov3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBd71LZ34PwrdHJvHr23rw6WZw7cvZQNH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "405562013129-mqboa2mru2tdo46k72lhktrb4v86ov3u.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
