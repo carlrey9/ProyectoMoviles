@@ -8,12 +8,16 @@
         "source": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+        "merged": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\src\\main\\res\\layout\\activity_login.xml"
     },
     {
         "merged": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
         "merged": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
@@ -34,6 +38,10 @@
     {
         "merged": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_registro.xml.flat",
+        "source": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\src\\main\\res\\layout\\activity_registro.xml"
     },
     {
         "merged": "C:\\Users\\jakle\\Desktop\\jaksonproject\\AndroidStudio\\ProyectoMoviles\\coordenadas\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",

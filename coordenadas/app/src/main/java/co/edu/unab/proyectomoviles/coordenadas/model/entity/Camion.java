@@ -1,17 +1,24 @@
 package co.edu.unab.proyectomoviles.coordenadas.model.entity;
 
-import com.google.firebase.firestore.GeoPoint;
-import com.google.type.LatLng;
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
+import com.google.firebase.firestore.GeoPoint;
+
+@Entity
 public class Camion {
 
     private int capacidad_tn;
     private String marca;
     private String modelo;
+    @PrimaryKey
+    @NonNull
     private String placa;
     private int serial;
     //punto geografico > geopoint ↓↓↓
-
+    @Ignore
     public GeoPoint ubicacion;
 
     public Camion(int capacidad_tn, String marca, String modelo, String placa, int serial, GeoPoint ubicacion) {
@@ -21,6 +28,14 @@ public class Camion {
         this.placa = placa;
         this.serial = serial;
         this.ubicacion = ubicacion;
+    }
+
+    public Camion(int capacidad_tn, String marca, String modelo, String placa, int serial) {
+        this.capacidad_tn = capacidad_tn;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.placa = placa;
+        this.serial = serial;
     }
 
     public int getCapacidad_tn() {

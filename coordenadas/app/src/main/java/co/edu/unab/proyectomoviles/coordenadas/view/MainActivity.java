@@ -16,14 +16,10 @@ import android.text.format.Time;
 import android.util.Log;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 
@@ -33,9 +29,11 @@ import java.util.Locale;
 
 import co.edu.unab.proyectomoviles.coordenadas.Localizacion;
 import co.edu.unab.proyectomoviles.coordenadas.R;
+import co.edu.unab.proyectomoviles.coordenadas.model.db.local.BaseDatos;
+import co.edu.unab.proyectomoviles.coordenadas.model.db.local.CamionDAO;
 import co.edu.unab.proyectomoviles.coordenadas.model.entity.Camion;
-import co.edu.unab.proyectomoviles.coordenadas.model.network.CallBackFirebase;
-import co.edu.unab.proyectomoviles.coordenadas.model.network.CamionRepository;
+import co.edu.unab.proyectomoviles.coordenadas.model.db.network.CallBackFirebase;
+import co.edu.unab.proyectomoviles.coordenadas.model.CamionRepository;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
     private CamionRepository camionRepositorio;
     private FirebaseFirestore fireDB;
     private Camion camion;
+    private CamionDAO camionDAO;
+    private BaseDatos db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
         asociarElementos();
         localizacion = new Localizacion();
         camionRepositorio = new CamionRepository();
+        db = BaseDatos.obtenerInstancia(this);
+        camionDAO = db.camionDAO();
 
         new CountDownTimer(86400 * 1000, 1000) {
             @Override
@@ -94,9 +97,12 @@ public class MainActivity extends AppCompatActivity {
                 text = "Mi ubicacion actual es: " + "\n Lat = "
                         + localizacion.latitud + "\n Long = " + localizacion.longitud;
                 textViewUbicacion.setText(text);
-
-                camion = new Camion (2,"tesla","2020","jak50n",10, new GeoPoint (localizacion.latitud, localizacion.longitud));
-                camionRepositorio.agregarFirestore(camion, new CallBackFirebase<Camion>() {
+                camion = camionDAO.obtener();
+                //implementar rooms para guardar el objeto camion para actualizar registro de coordenadas en la misma tabla
+                //camion = new Camion (3, "hiunday", "2020","jak50n",10, new GeoPoint (localizacion.latitud, localizacion.longitud));
+                Log.d("prueba","cv:"+camion.getPlaca());
+                camion.setUbicacion(new GeoPoint(localizacion.latitud, localizacion.longitud));
+                camionRepositorio.nuevaUbicacion(MainActivity.this, camion, new CallBackFirebase<Camion>() {
                     @Override
                     public void correcto(Camion respuesta) {
 
