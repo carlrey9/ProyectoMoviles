@@ -6,7 +6,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import co.edu.unab.proyectomoviles.coordenadas.model.entity.Camion;
 
-@Database(entities = {Camion.class}, version = 1, exportSchema = false)
+@Database(entities = {Camion.class}, version = 1, exportSchema = false) //crea la base de datos local
 public abstract class BaseDatos extends RoomDatabase {
 
     public abstract CamionDAO camionDAO();
@@ -16,10 +16,9 @@ public abstract class BaseDatos extends RoomDatabase {
         if (instancia==null){
             instancia = Room.databaseBuilder(
                     contexto.getApplicationContext(),BaseDatos.class,
-                    "tiendapp.db").allowMainThreadQueries().build();
+                    "camion.db").allowMainThreadQueries().build();
         }
         return instancia;
     }
-
 
 }

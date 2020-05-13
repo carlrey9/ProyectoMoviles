@@ -29,14 +29,13 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity android:name="co.edu.unab.proyectomoviles.coordenadas.view.LoginActivity" >
-        </activity>
-        <activity android:name="co.edu.unab.proyectomoviles.coordenadas.view.RegistroActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="co.edu.unab.proyectomoviles.coordenadas.view.RegistroActivity" />
         <activity android:name="co.edu.unab.proyectomoviles.coordenadas.view.MainActivity" />
 
         <service

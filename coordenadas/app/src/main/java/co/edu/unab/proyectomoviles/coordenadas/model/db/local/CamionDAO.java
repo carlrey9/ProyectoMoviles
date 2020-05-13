@@ -9,6 +9,7 @@ import co.edu.unab.proyectomoviles.coordenadas.model.entity.Camion;
 @Dao
 public interface CamionDAO {
 
+    //se definen las consultas que se vana a realizar en Rooms con SQL
     @Insert
     void agregar(Camion miProducto);
 

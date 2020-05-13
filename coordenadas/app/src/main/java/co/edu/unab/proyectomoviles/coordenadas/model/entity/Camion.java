@@ -13,6 +13,7 @@ public class Camion {
     private int capacidad_tn;
     private String marca;
     private String modelo;
+    //indica llave primaria para Rooms ↓↓↓
     @PrimaryKey
     @NonNull
     private String placa;
@@ -21,15 +22,6 @@ public class Camion {
     @Ignore
     public GeoPoint ubicacion;
 
-    public Camion(int capacidad_tn, String marca, String modelo, String placa, int serial, GeoPoint ubicacion) {
-        this.capacidad_tn = capacidad_tn;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.placa = placa;
-        this.serial = serial;
-        this.ubicacion = ubicacion;
-    }
-
     public Camion(int capacidad_tn, String marca, String modelo, String placa, int serial) {
         this.capacidad_tn = capacidad_tn;
         this.marca = marca;
@@ -37,49 +29,12 @@ public class Camion {
         this.placa = placa;
         this.serial = serial;
     }
+    public Camion(){
 
-    public int getCapacidad_tn() {
-        return capacidad_tn;
-    }
-
-    public void setCapacidad_tn(int capacidad_tn) {
-        this.capacidad_tn = capacidad_tn;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
     }
 
     public String getPlaca() {
         return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
-    public int getSerial() {
-        return serial;
-    }
-
-    public void setSerial(int serial) {
-        this.serial = serial;
-    }
-
-    public GeoPoint getUbicacion() {
-        return ubicacion;
     }
 
     public void setUbicacion(GeoPoint ubicacion) {

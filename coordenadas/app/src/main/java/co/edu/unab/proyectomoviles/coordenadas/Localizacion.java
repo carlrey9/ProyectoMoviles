@@ -10,21 +10,20 @@ import co.edu.unab.proyectomoviles.coordenadas.view.MainActivity;
 
 public class Localizacion implements LocationListener {
 
-    MainActivity mainActivity;
+    private MainActivity mainActivity;
     public static double
             latitud = 0.0,
             longitud = 3.2;
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
-        Log.d("prueba","gps:"+latitud);
     }
 
     @Override  // obtiene la latitud y longitud
     public void onLocationChanged (Location loc){
             /* Este metodo se ejecuta cada vez que el GPS recibe nuevas coordenadas
                debido a la deteccion de un cambio de ubicacion*/
-        latitud = loc.getLatitude();      ///////////////////
-        longitud = loc.getLongitude();    //////////////////
+        latitud = loc.getLatitude();
+        longitud = loc.getLongitude();
         Log.d("prueba","gps:"+latitud);
         this.mainActivity.setLocation(loc);   //------>del metodo setLocation   //pone la direccion
 

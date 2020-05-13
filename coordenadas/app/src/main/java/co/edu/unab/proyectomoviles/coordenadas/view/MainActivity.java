@@ -13,14 +13,11 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.provider.Settings;
 import android.text.format.Time;
-import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 
 import java.io.IOException;
@@ -49,11 +46,9 @@ public class MainActivity extends AppCompatActivity {
             hora,
             min,
             seg;
-    private String text;
     private Time today;
     private Localizacion localizacion;
     private CamionRepository camionRepositorio;
-    private FirebaseFirestore fireDB;
     private Camion camion;
     private CamionDAO camionDAO;
     private BaseDatos db;
@@ -63,13 +58,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        asociarElementos();
-        localizacion = new Localizacion();
-        camionRepositorio = new CamionRepository();
-        db = BaseDatos.obtenerInstancia(this);
-        camionDAO = db.camionDAO();
+        camion = camionDAO.obtener();
+        instanciar();
+        inicializar();
 
-        new CountDownTimer(86400 * 1000, 1000) {
+        new CountDownTimer(86400 * 1000, 1000) { //contador cada segundo da un ciclo
             @Override
             public void onTick(long millisUntilFinished) {
                 today = new Time(Time.getCurrentTimezone());
@@ -90,25 +83,17 @@ public class MainActivity extends AppCompatActivity {
             }
         }.start();
 
-        new CountDownTimer(86400 * 1000, 5000) {
+        new CountDownTimer(86400 * 1000, 5000) {//contador cada 5 segundos da un ciclo
             @Override
             public void onTick(long millisUntilFinished) {
+                camion.setUbicacion(new GeoPoint(localizacion.latitud, localizacion.longitud));//agrega coordenadas nuevas nueva
+                textViewUbicacion.setText("Mi ubicacion actual es: " + "\n Lat = "
+                        + localizacion.latitud + "\n Long = " + localizacion.longitud);
 
-                text = "Mi ubicacion actual es: " + "\n Lat = "
-                        + localizacion.latitud + "\n Long = " + localizacion.longitud;
-                textViewUbicacion.setText(text);
-                camion = camionDAO.obtener();
-                //implementar rooms para guardar el objeto camion para actualizar registro de coordenadas en la misma tabla
-                //camion = new Camion (3, "hiunday", "2020","jak50n",10, new GeoPoint (localizacion.latitud, localizacion.longitud));
-                Log.d("prueba","cv:"+camion.getPlaca());
-                camion.setUbicacion(new GeoPoint(localizacion.latitud, localizacion.longitud));
                 camionRepositorio.nuevaUbicacion(MainActivity.this, camion, new CallBackFirebase<Camion>() {
                     @Override
-                    public void correcto(Camion respuesta) {
-
-                    }
+                    public void correcto(Camion respuesta) { }
                 });
-
             }
 
             public void onFinish() {
@@ -118,25 +103,29 @@ public class MainActivity extends AppCompatActivity {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            //Log.d("prueba", "if: entro");
+                //verifica si tenemos consedido el permiso de ubicacion y esta activa el gps
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
         } else {
-            //Log.d("prueba", "ifelse: entro");
             locationStart();
         }
-        Log.d("prueba", "JAK 1:" + (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ));
-        //Log.d("prueba", "JAK 2:" + (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED));
+
     }
 
-    private void asociarElementos() {
+    private void instanciar() {
         textViewDireccion = findViewById(R.id.textView_direccion);
         textViewFecha = findViewById(R.id.textView_fecha);
         textViewHora = findViewById(R.id.textView_hora);
         textViewUbicacion = findViewById(R.id.textView_ubicacion);
     }
 
-    private void locationStart() {
-        //Log.d("prueba", "locationStart");
+    private void inicializar() {
+        localizacion = new Localizacion();
+        camionRepositorio = new CamionRepository();
+        db = BaseDatos.obtenerInstancia(this);
+        camionDAO = db.camionDAO();
+    }
+
+    private void locationStart() { //metodo para activar el gps
         LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Localizacion Local = new Localizacion();
         Local.setMainActivity(this);
@@ -145,8 +134,8 @@ public class MainActivity extends AppCompatActivity {
         new CountDownTimer(3000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                //Log.d("prueba", "locationStart: " + gpsEnabled);
             }
+
             public void onFinish() {
                 if (gpsEnabled != true) {
                     Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
@@ -157,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            //Log.d("prueba", "no: " + gpsEnabled);
+
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
             return;
         }
@@ -186,8 +175,7 @@ public class MainActivity extends AppCompatActivity {
                         loc.getLatitude(), loc.getLongitude(), 1);
                 if (!list.isEmpty()) {
                     Address DirCalle = list.get(0);
-                    textViewDireccion.setText("Mi direccion es: \n"
-                            + DirCalle.getAddressLine(0));
+                    textViewDireccion.setText("Mi direccion es: \n" + DirCalle.getAddressLine(0));
                 }
 
             } catch (IOException e) {
