@@ -1,6 +1,4 @@
-package co.edu.unab.proyectomoviles.basurapp;
-
-import com.google.firebase.firestore.GeoPoint;
+package co.edu.unab.proyectomoviles.basurapp.model.entity;
 
 import java.io.Serializable;
 
