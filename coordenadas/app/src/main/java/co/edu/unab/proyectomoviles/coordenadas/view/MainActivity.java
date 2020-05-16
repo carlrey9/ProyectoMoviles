@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTick(long millisUntilFinished) {
                 camion.setUbicacion(new GeoPoint(localizacion.latitud, localizacion.longitud));//agrega coordenadas nuevas nueva
+
                 textViewUbicacion.setText("Mi ubicacion actual es: " + "\n Lat = "
                         + localizacion.latitud + "\n Long = " + localizacion.longitud);
 

@@ -2,6 +2,7 @@ package co.edu.unab.proyectomoviles.basurapp.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -16,5 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        startActivity(new Intent(getApplicationContext(), MapActivity.class));
     }
 }
