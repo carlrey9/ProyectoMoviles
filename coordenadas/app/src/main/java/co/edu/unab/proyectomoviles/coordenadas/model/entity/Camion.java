@@ -29,10 +29,8 @@ public class Camion {
         this.placa = placa;
         this.serial = serial;
     }
-
-    public Camion(){
-
-    }
+    @Ignore
+    public Camion(){ }
 
     public int getCapacidad_tn() {
         return capacidad_tn;

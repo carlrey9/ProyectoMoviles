@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.provider.Settings;
 import android.text.format.Time;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,9 +59,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        camion = camionDAO.obtener();
         instanciar();
         inicializar();
+
+        camion = camionDAO.obtener();
 
         new CountDownTimer(86400 * 1000, 1000) { //contador cada segundo da un ciclo
             @Override
@@ -87,14 +89,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTick(long millisUntilFinished) {
                 camion.setUbicacion(new GeoPoint(localizacion.latitud, localizacion.longitud));//agrega coordenadas nuevas nueva
-
                 textViewUbicacion.setText("Mi ubicacion actual es: " + "\n Lat = "
                         + localizacion.latitud + "\n Long = " + localizacion.longitud);
-
                 camionRepositorio.nuevaUbicacion(MainActivity.this, camion, new CallBackFirebase<Camion>() {
                     @Override
-                    public void correcto(Camion respuesta) { }
+                    public void correcto(Camion respuesta) {
+                    }
                 });
+
             }
 
             public void onFinish() {
@@ -104,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                //verifica si tenemos consedido el permiso de ubicacion y esta activa el gps
+            //verifica si tenemos consedido el permiso de ubicacion y esta activa el gps
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
         } else {
             locationStart();

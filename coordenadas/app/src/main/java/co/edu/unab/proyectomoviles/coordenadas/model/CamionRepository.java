@@ -1,6 +1,7 @@
 package co.edu.unab.proyectomoviles.coordenadas.model;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,11 +22,12 @@ public class CamionRepository {
     }
 
     public void nuevaUbicacion(final Context context, final Camion camion, final CallBackFirebase<Camion> callBackFirestore) {
+        Log.d("TAG", "camire: " + camion.getCapacidad_tn());
         fireDB.collection("camiones").document(camion.getPlaca()).set(camion).
                 addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(context, "ubicacion actualizada", Toast.LENGTH_SHORT).show();
+                        if (task.isSuccessful()) Toast.makeText(context, "ubicacion actualizada", Toast.LENGTH_SHORT).show();
                     }
                 });
     }

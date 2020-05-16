@@ -2,6 +2,7 @@ package co.edu.unab.proyectomoviles.coordenadas.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +22,6 @@ public class RegistroActivity extends AppCompatActivity {
             editTextSerial;
     private Button btnRegistrar;
     private Camion camion;
-    public static boolean bandera = false;
     private CamionDAO camionDAO;
     private BaseDatos db;
 
@@ -42,7 +42,6 @@ public class RegistroActivity extends AppCompatActivity {
                         editTextPlaca.getText().toString(),
                         Integer.parseInt(editTextSerial.getText().toString()));
                 camionDAO.agregar(camion); //se agrega a la base de datos local
-
                 startActivity(new Intent(RegistroActivity.this, MainActivity.class));
                 finish(); //termina la actividad
             }
