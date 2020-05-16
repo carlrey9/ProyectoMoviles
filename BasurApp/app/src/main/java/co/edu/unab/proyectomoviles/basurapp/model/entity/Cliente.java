@@ -1,4 +1,4 @@
-package co.edu.unab.proyectomoviles.basurapp.model.entity;
+package co.edu.unab.proyectomoviles.basurapp.model.model.entity;
 
 import java.io.Serializable;
 

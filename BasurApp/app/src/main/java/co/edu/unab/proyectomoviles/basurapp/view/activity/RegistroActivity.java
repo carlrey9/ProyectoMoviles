@@ -1,4 +1,4 @@
-package co.edu.unab.proyectomoviles.basurapp.model.entity;
+package co.edu.unab.proyectomoviles.basurapp.view.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -22,8 +22,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import co.edu.unab.proyectomoviles.basurapp.R;
+import co.edu.unab.proyectomoviles.basurapp.model.model.entity.Cliente;
 
-public class Registro extends AppCompatActivity {
+public class RegistroActivity extends AppCompatActivity {
     private EditText edtNombreRegistro;
     private EditText edtApellidoRegistro;
     private EditText edtCelularRegistro;
@@ -94,11 +95,11 @@ public class Registro extends AppCompatActivity {
                         username.isEmpty() ||
                         password.isEmpty())
                 {
-                    Toast.makeText(Registro.this, "Debe completar todos los campos ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegistroActivity.this, "Debe completar todos los campos ", Toast.LENGTH_LONG).show();
 
                 }else{
                     if (password.length() <6 ){
-                        Toast.makeText(Registro.this,"La contraseña debe tener al menos 6 caracteres",Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegistroActivity.this,"La contraseña debe tener al menos 6 caracteres",Toast.LENGTH_LONG).show();
                     }else{
                         //registro en firestore en coleccion usuario_cliente
                         registroFiretore();
@@ -128,7 +129,7 @@ public class Registro extends AppCompatActivity {
         firestoreDB.collection("usuarios_cliente").add(nuevoCliente).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
-                Toast.makeText(Registro.this, "registrado", Toast.LENGTH_LONG).show();
+                Toast.makeText(RegistroActivity.this, "registrado", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
@@ -151,14 +152,14 @@ public class Registro extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()){
-                                Toast.makeText(Registro.this,"Usuario registrado",Toast.LENGTH_LONG).show();
+                                Toast.makeText(RegistroActivity.this,"Usuario registrado",Toast.LENGTH_LONG).show();
                             }
                         }
                     });
 
 
                 }else{
-                    Toast.makeText(Registro.this, "No se pudo realizar el registro del usuario",Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegistroActivity.this, "No se pudo realizar el registro del usuario",Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -1,4 +1,4 @@
-package co.edu.unab.proyectomoviles.basurapp.model.entity;
+package co.edu.unab.proyectomoviles.basurapp.view.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,6 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.List;
 
 import co.edu.unab.proyectomoviles.basurapp.R;
+import co.edu.unab.proyectomoviles.basurapp.model.model.entity.Cliente;
 import co.edu.unab.proyectomoviles.basurapp.model.repository.ClienteRepository;
 
 public class LoginActivity extends AppCompatActivity {
@@ -44,6 +45,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        misPreferencias = getSharedPreferences(getString(R.string.mis_datos), MODE_PRIVATE);
+        boolean logueado = misPreferencias.getBoolean("logueado", false);
+
+        if(logueado){
+            Intent i = new Intent(LoginActivity.this,HomeActivity.class);
+            startActivity(i);
+            finish();
+        }
+
         asociarElementos();
 
         verificarLogueo();
@@ -52,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
 
         irIniciarRegistro();
 
-        iniciarLogin();
+        iniciarLogin(logueado);
 
         clienteRepository = new ClienteRepository(LoginActivity.this);
 
@@ -78,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
         btnOmitir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getApplicationContext(), Home.class);
+                Intent in = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(in);
                 Toast.makeText(getApplicationContext(), "Bienvenido ", Toast.LENGTH_LONG).show();
             }
@@ -91,14 +101,19 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "A registrarse ", Toast.LENGTH_LONG).show();
-                Intent in = new Intent(LoginActivity.this, Registro.class);
+                Intent in = new Intent(LoginActivity.this, RegistroActivity.class);
                 startActivity(in);
 
             }
         });
     }
 
-    public void iniciarLogin(){
+    public void verificarLogueo(){
+
+
+    }
+
+    public void iniciarLogin(final boolean logueado){
 
 
         btnIngresar.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +126,12 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                startActivity(new Intent(LoginActivity.this, Home.class));
+                                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+
+                                SharedPreferences.Editor miEditor = misPreferencias.edit();
+                                miEditor.putBoolean("logueado", true);
+                                miEditor.apply();
+
                                 finish();
                             } else
                                 Toast.makeText(getApplicationContext(), "verifique sus datos y vuelva a iniciar sesion", Toast.LENGTH_LONG).show();
@@ -140,16 +160,7 @@ public class LoginActivity extends AppCompatActivity {
          */
     }
 
-    public void verificarLogueo(){
-        misPreferencias = getSharedPreferences(getString(R.string.mis_datos), MODE_PRIVATE);
 
-        boolean logueado = misPreferencias.getBoolean("logueado", false);
-        if(logueado){
-            Intent i = new Intent(LoginActivity.this,Home.class);
-            startActivity(i);
-            finish();
-        }
-    }
 
 
 }

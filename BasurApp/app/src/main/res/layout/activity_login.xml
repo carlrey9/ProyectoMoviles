@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".model.entity.LoginActivity">
+    tools:context=".model.model.entity.LoginActivity">
 
     <TextView
         android:id="@+id/txv_titulo_presentacion"

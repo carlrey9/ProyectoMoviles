@@ -16,6 +16,7 @@
 
     <string name="boton_ver_camiones">Ver Camiones</string>
     <string name="descripcion_home">Binevenido a BasurApp, Gracias por descargar nuestra aplciación y ayudar al medio ambiente</string>
+    <string name="boton_cerrar_sesion">Cerrar Sesion</string>
 
 
     <string name="mis_datos">BasurApp</string>
