@@ -20,4 +20,6 @@
 
 
     <string name="mis_datos">BasurApp</string>
+    <string name="mis_datos_primer_ingreso">primerIngreso</string>
+    <string name="mis_datos_primer_ingreso2">primerIngreso2</string>
 </resources>
