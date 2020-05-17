@@ -13,6 +13,7 @@ import co.edu.unab.proyectomoviles.basurapp.R;
 public class HomeActivity extends AppCompatActivity {
 
     private Button btnCerrarSesion;
+    private Button btnVercamiones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +22,14 @@ public class HomeActivity extends AppCompatActivity {
 
         asociarElementos();
 
+        verCamiones();
+
         cerrarSesion();
     }
 
     public void asociarElementos(){
         btnCerrarSesion = findViewById(R.id.btn_cerrar_sesion);
+        btnVercamiones = findViewById(R.id.btn_ver_camiones);
     }
 
     public void cerrarSesion (){
@@ -42,5 +46,15 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public  void verCamiones(){
+        btnVercamiones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(in);
+            }
+        });
     }
 }

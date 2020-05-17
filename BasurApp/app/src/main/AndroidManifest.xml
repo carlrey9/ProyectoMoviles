@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.RegistroActivity"></activity>
+        <activity android:name=".view.activity.MainActivity"></activity>
     </application>
 
 </manifest>
