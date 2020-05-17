@@ -1,7 +1,0 @@
-Time : 18:09:04
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(`nombre`="D",`apellido`="F",`celular`="1234567890",`ciudad`="bucaramanga",`pais' at line 1
-Raw SQL : UPDATE `usuarios` set (`nombre`="D",`apellido`="F",`celular`="1234567890",`ciudad`="bucaramanga",`pais`="colombia",`urlfoto`="https://firebasestorage.googleapis.com/v0/b/madradioapp-8055a.appspot.com/o/images/image_001.jpg?alt=media") WHERE `id`= "33"
-
-Time : 18:07:57
-SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(`nombre`="D", `apellido`="F",  `celular`="1234567890",`ciudad`="bucaramanga",`p' at line 1
-Raw SQL : UPDATE `usuarios` set (`nombre`="D", `apellido`="F",  `celular`="1234567890",`ciudad`="bucaramanga",`pais`="colombia",`urlfoto`="https://firebasestorage.googleapis.com/v0/b/madradioapp-8055a.appspot.com/o/images/image_001.jpg?alt=media") WHERE `id`= "33"
