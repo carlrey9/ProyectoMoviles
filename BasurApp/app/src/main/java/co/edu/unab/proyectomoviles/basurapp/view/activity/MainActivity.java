@@ -22,11 +22,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //RECYCLERVIEW
+        reciclerview();
+
+        iniciarAdapter();
+
+    }
+
+    public void reciclerview (){
         recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
+    }
+
+    public void iniciarAdapter(){
 
         List<ModelClass> modelClassList = new ArrayList<>();
         modelClassList.add(new ModelClass(R.drawable.ic_launcher_background, "Titulo 1", "Titulo 1 Usuario"));
@@ -42,13 +51,6 @@ public class MainActivity extends AppCompatActivity {
 
         Adapter adapter = new Adapter(modelClassList);
         recyclerView.setAdapter(adapter);
-
         adapter.notifyDataSetChanged();
-
-        //--------------------------------------------------inicio-------------------------------------------------
-
-        //--------------------------------------------------fin-------------------------------------------------
-
-
     }
 }

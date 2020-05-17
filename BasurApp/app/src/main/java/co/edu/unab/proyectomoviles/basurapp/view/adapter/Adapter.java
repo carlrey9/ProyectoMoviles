@@ -59,6 +59,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         }
 
+
         private void setData(int imageResource, String titleText, String bodyText){
             imageView.setImageResource(imageResource);
             title.setText(titleText);

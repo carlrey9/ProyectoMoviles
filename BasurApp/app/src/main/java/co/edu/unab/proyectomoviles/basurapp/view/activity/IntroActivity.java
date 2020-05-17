@@ -16,30 +16,31 @@ import co.edu.unab.proyectomoviles.basurapp.R;
 
 public class IntroActivity extends AppCompatActivity {
 
-    ImageView img1;
+    private ImageView img1;
+    private TextView txvNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
+
         final SharedPreferences misPreferencias = getSharedPreferences(getString(R.string.mis_datos_primer_ingreso), MODE_PRIVATE);
 
-        Boolean logueado = misPreferencias.getBoolean("primerIngreso", false);
-        if(logueado){
+        Boolean primerIngreso = misPreferencias.getBoolean("primerIngreso", false);
+        if (primerIngreso) {
             Intent in = new Intent(IntroActivity.this, LoginActivity.class);
             startActivity(in);
             finish();
         }
 
-        img1 = findViewById(R.id.img_1);
-        String url = "https://www.pngkey.com/png/full/237-2374807_heavy-duty-type-garbage-truck.png";
-        Picasso.get().load(url).into(img1);
+        asociarElementos();
 
-        //SILDE SCREEN DESIGN-----
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        TextView tv_next = findViewById(R.id.tv_next);
-        tv_next.setOnClickListener(new View.OnClickListener() {
+        ponerImagen();
+
+        iniciarScreenDesing();
+
+        txvNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor miEditor = misPreferencias.edit();
@@ -53,8 +54,25 @@ public class IntroActivity extends AppCompatActivity {
             }
         });
 
-        //SILDE SCREEN DESIGN-----
     }
+    
+    
+    public void asociarElementos(){
+        img1 = findViewById(R.id.img_1);
+        txvNext = findViewById(R.id.tv_next);
+    }
+    
+    public void ponerImagen(){
+        String url = "https://www.pngkey.com/png/full/237-2374807_heavy-duty-type-garbage-truck.png";
+        Picasso.get().load(url).into(img1);
+    }
+    
+    public void iniciarScreenDesing(){
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+    
+
+    
 
 
 }
