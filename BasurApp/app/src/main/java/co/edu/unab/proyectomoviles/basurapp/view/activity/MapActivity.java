@@ -37,7 +37,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         Bundle datosB = getIntent().getExtras();
         final String placaB = datosB.getString("placa");
-
+Log.d("TAG", "placa: "+placaB);
         this.inicializar();
 
         //Log.d("prueba","latitud: "+camion.getPlaca());

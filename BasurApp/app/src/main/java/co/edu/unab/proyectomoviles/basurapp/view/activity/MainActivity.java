@@ -2,6 +2,7 @@ package co.edu.unab.proyectomoviles.basurapp.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private CamionAdapter adapter;
-    private List<Camion>camionesArray;
-    private ArrayList<Camion> camiones;
+
+    public List<Camion> camiones;
     private CamionRepository camionRepositorio;
 
     @Override
@@ -33,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         camionRepositorio = new CamionRepository();
-        camiones = new ArrayList<Camion>();
+        camiones = new ArrayList<>();
+        getDataFirestore();
 
-        camionesArray = new ArrayList<>();
-        adapter = new CamionAdapter(camionesArray, new CamionAdapter.onItemClickListener() {
+        adapter = new CamionAdapter(camiones, new CamionAdapter.onItemClickListener() {
             @Override
             public void onItemClick(Camion camion, int posicion) {
                 Toast.makeText(getApplicationContext(), "tap en: " + camion.getPlaca(), Toast.LENGTH_LONG).show();
-                startActivity(new Intent(MainActivity.this, MapActivity.class).putExtra("placa", camiones.get(posicion).getPlaca()));
+                startActivity(new Intent(MainActivity.this, MapActivity.class).putExtra("placa", camion.getPlaca()));
             }
         });
 
@@ -49,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
 
-        getDataFirestore();
     }
 
     private void getDataFirestore(){
