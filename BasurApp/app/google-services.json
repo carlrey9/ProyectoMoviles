@@ -15,6 +15,43 @@
       },
       "oauth_client": [
         {
+          "client_id": "405562013129-66r6es4d8m6j5d26sr2jq15269ek3fmp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.edu.unab.proyectomoviles.basurapp",
+            "certificate_hash": "8ddb44d70ce2b380d20649020b105e2f42ff5df5"
+          }
+        },
+        {
+          "client_id": "405562013129-mqboa2mru2tdo46k72lhktrb4v86ov3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBd71LZ34PwrdHJvHr23rw6WZw7cvZQNH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "405562013129-mqboa2mru2tdo46k72lhktrb4v86ov3u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405562013129:android:33e0bbc6a0bb6df8362418",
+        "android_client_info": {
+          "package_name": "co.edu.unab.proyectomoviles.coordenadas"
+        }
+      },
+      "oauth_client": [
+        {
           "client_id": "405562013129-mqboa2mru2tdo46k72lhktrb4v86ov3u.apps.googleusercontent.com",
           "client_type": 3
         }

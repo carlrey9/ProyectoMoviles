@@ -15,10 +15,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 
-import co.edu.unab.proyectomoviles.basurapp.CamionRepository;
 import co.edu.unab.proyectomoviles.basurapp.R;
-import co.edu.unab.proyectomoviles.basurapp.model.db.network.CallBackFirebase;
+import co.edu.unab.proyectomoviles.basurapp.model.bd.network.CallBackFirebase;
 import co.edu.unab.proyectomoviles.basurapp.model.entity.Camion;
+import co.edu.unab.proyectomoviles.basurapp.model.repository.CamionRepository;
 
 public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -35,7 +35,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        inicializar();
+        Bundle datosB = getIntent().getExtras();
+        final String placaB = datosB.getString("placa");
+
+        this.inicializar();
 
         //Log.d("prueba","latitud: "+camion.getPlaca());
 
@@ -43,7 +46,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             @Override
             public void onTick(long millisUntilFinished) {
 
-                camionRepositorio.traerCoordenadas(new CallBackFirebase<Camion>() {
+                camionRepositorio.traerCoordenadas(placaB, new CallBackFirebase<Camion>() {
                     @Override
                     public void correcto(Camion respuesta) {
                         camion = respuesta;
