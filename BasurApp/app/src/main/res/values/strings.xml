@@ -31,4 +31,13 @@
     <string name="mis_datos_primer_ingreso2">primerIngreso2</string>
 
 
+    <!---itemactivity-->
+    <string name="item_activity">itemactivity</string>
+
+    <!---itemactivity-->
+    <string name="btn_Siguiente">btnSiguiente</string>
+    <string name="btn_Anterior">btnAnterior</string>
+    <string name="btn_Regresar">btnAnterior</string>
+    <string name="btn_Regresar1">btnAnterior</string>
+    <string name="title_activity_map">Map</string>
 </resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.RegistroActivity">
+
+    <EditText
+        android:id="@+id/textView_capacidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/capcidad_camion"
+        android:inputType="number"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/textView_marca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/marca_camion"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/textView_modelo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/modelo_camion"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/textView_placa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/placa_camion"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/textView_serial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/serial_camion"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_nuevo_camion" />
+
+</LinearLayout>

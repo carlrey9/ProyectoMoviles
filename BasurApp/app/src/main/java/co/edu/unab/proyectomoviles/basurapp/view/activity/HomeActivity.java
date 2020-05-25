@@ -8,6 +8,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.onesignal.OneSignal;
+
 import co.edu.unab.proyectomoviles.basurapp.R;
 
 public class HomeActivity extends AppCompatActivity {
@@ -19,6 +21,8 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        oneSignal();
 
         asociarElementos();
 
@@ -32,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         btnVercamiones = findViewById(R.id.btn_ver_camiones);
     }
 
-    public void cerrarSesion (){
+    public void cerrarSesion(){
         btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,5 +60,12 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(in);
             }
         });
+    }
+
+    public void oneSignal(){
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
     }
 }

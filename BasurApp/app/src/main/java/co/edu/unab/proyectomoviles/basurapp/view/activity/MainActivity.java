@@ -1,6 +1,9 @@
 package co.edu.unab.proyectomoviles.basurapp.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,47 +13,54 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.edu.unab.proyectomoviles.basurapp.R;
-import co.edu.unab.proyectomoviles.basurapp.model.entity.ModelClass;
-import co.edu.unab.proyectomoviles.basurapp.view.adapter.Adapter;
+import co.edu.unab.proyectomoviles.basurapp.model.bd.network.CallBackFirebase;
+import co.edu.unab.proyectomoviles.basurapp.model.entity.Camion;
+import co.edu.unab.proyectomoviles.basurapp.model.repository.CamionRepository;
+import co.edu.unab.proyectomoviles.basurapp.view.adapter.CamionAdapter;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+    private CamionAdapter adapter;
+
+    public List<Camion> camiones;
+    private CamionRepository camionRepositorio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        reciclerview();
-
-        iniciarAdapter();
-
-    }
-
-    public void reciclerview (){
         recyclerView = findViewById(R.id.recyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(layoutManager);
-    }
+        camionRepositorio = new CamionRepository();
+        camiones = new ArrayList<>();
+        getDataFirestore();
 
-    public void iniciarAdapter(){
+        adapter = new CamionAdapter(camiones, new CamionAdapter.onItemClickListener() {
+            @Override
+            public void onItemClick(Camion camion, int posicion) {
+                Toast.makeText(getApplicationContext(), "tap en: " + camion.getPlaca(), Toast.LENGTH_LONG).show();
+                startActivity(new Intent(MainActivity.this, MapActivity.class).putExtra("placa", camion.getPlaca()));
+            }
+        });
 
-        List<ModelClass> modelClassList = new ArrayList<>();
-        modelClassList.add(new ModelClass(R.drawable.ic_launcher_background, "Titulo 1", "Titulo 1 Usuario"));
-        modelClassList.add(new ModelClass(R.drawable.ic_launcher_background, "Titulo 2", "Titulo 2 Usuario"));
-        modelClassList.add(new ModelClass(R.drawable.ic_launcher_background, "Titulo 3", "Titulo 3 Usuario"));
-        modelClassList.add(new ModelClass(R.drawable.ic_launcher_background, "Titulo 4", "Titulo 4 Usuario"));
-        modelClassList.add(new ModelClass(R.drawable.ic_launcher_background, "Titulo 5", "Titulo 5 Usuario"));
-        modelClassList.add(new ModelClass(R.drawable.ic_launcher_background, "Titulo 6", "Titulo 6 Usuario"));
-        modelClassList.add(new ModelClass(R.drawable.ic_launcher_background, "Titulo 7", "Titulo 7 Usuario"));
-        modelClassList.add(new ModelClass(R.drawable.ic_launcher_background, "Titulo 8", "Titulo 8 Usuario"));
-        modelClassList.add(new ModelClass(R.drawable.ic_launcher_background, "Titulo 9", "Titulo 9 Usuario"));
-        modelClassList.add(new ModelClass(R.drawable.ic_launcher_background, "Titulo 10", "Titulo 10 Usuario"));
-
-        Adapter adapter = new Adapter(modelClassList);
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplication());
+        recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        recyclerView.setHasFixedSize(true);
+
     }
+
+    private void getDataFirestore(){
+        camionRepositorio.obtenerTodosFirestore(new CallBackFirebase<List<Camion>>() {
+            @Override
+            public void correcto(List<Camion> respuesta) {
+                adapter.setCamiones(respuesta);
+            }
+        });
+    }
+
 }
+
+

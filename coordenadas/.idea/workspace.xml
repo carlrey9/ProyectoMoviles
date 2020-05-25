@@ -5,17 +5,19 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="que" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3d6b052-dad3-4c76-b2d9-4986c8c9ed20" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../BasurApp/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BasurApp/.idea/gradle.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6ffd77ec-35cc-4833-a95e-6c1071ae3b1f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_28" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="09d735360805" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -28,14 +30,41 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1aE9FuTp6FwGbNQHe8zI2ztuRfl" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1bbZL2o94e5Olgm1q0e6PtOjH3I" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="J7AXB761X076X4Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-10T22:22:06.172Z" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BasurApp" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app" />
+      <recent name="C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app\src\main\res\layout" />
+      <recent name="C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app\src\main\java\co\edu\unab\proyectomoviles\coordenadas" />
+    </key>
+    <key name="android.template.packageName">
+      <recent name="co.edu.unab.proyectomoviles.coordenadas.view" />
+      <recent name="co.edu.unab.proyectomoviles.coordenadas" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jakle\Desktop\jaksonproject\AndroidStudio\ProyectoMoviles\coordenadas\app" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -57,7 +86,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -114,11 +143,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a3d6b052-dad3-4c76-b2d9-4986c8c9ed20" name="Default Changelist" comment="" />
-      <created>1586289785865</created>
+      <changelist id="6ffd77ec-35cc-4833-a95e-6c1071ae3b1f" name="Default Changelist" comment="" />
+      <created>1588902693630</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1586289785865</updated>
+      <updated>1588902693630</updated>
     </task>
     <servers />
   </component>
@@ -127,7 +156,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
