@@ -10,7 +10,7 @@
     app:cardBackgroundColor="@android:color/holo_orange_light"
     app:cardCornerRadius="6dp"
     app:cardElevation="5dp"
-    tools:context=".view.activity.DetalleActivity">
+    tools:context="co.edu.unab.proyectomoviles.basurapp.view.activity.DetalleActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

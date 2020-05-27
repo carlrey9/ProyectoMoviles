@@ -35,7 +35,10 @@ public class LoginActivity extends AppCompatActivity {
 
         instanciar();
         inicializar();
-        if (camion != null) startActivity(new Intent(getApplicationContext(), MainActivity.class)); //verifica si ya se realizo un registro
+        if (camion != null) {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class)); //verifica si ya se realizo un registro
+            finish();
+        }
 
     }
 
