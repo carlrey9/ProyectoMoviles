@@ -23,7 +23,6 @@ import co.edu.unab.proyectomoviles.coordenadas.model.entity.Camion;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText editTextEmail, editTextPass;
-    private Button btnLoguearse;
     private FirebaseAuth firebaseAuth;
     private Camion camion;
     private CamionDAO camionDAO;
@@ -38,19 +37,18 @@ public class LoginActivity extends AppCompatActivity {
         inicializar();
         if (camion != null) startActivity(new Intent(getApplicationContext(), MainActivity.class)); //verifica si ya se realizo un registro
 
-        btnLoguearse.setOnClickListener(new View.OnClickListener() {
+    }
+
+    public void entrar(View v){
+        firebaseAuth.signInWithEmailAndPassword(editTextEmail.getText().toString(), editTextPass.getText().toString())
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
-            public void onClick(View view) {
-                firebaseAuth.signInWithEmailAndPassword(editTextEmail.getText().toString(), editTextPass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            startActivity(new Intent(LoginActivity.this, RegistroActivity.class));
-                            finish();
-                        } else
-                            Toast.makeText(getApplicationContext(), "verifique sus datos y vuelva a iniciar sesion", Toast.LENGTH_LONG).show();
-                    }
-                });
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    startActivity(new Intent(LoginActivity.this, RegistroActivity.class));
+                    finish();
+                } else
+                    Toast.makeText(getApplicationContext(), "verifique sus datos y vuelva a iniciar sesion", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -58,7 +56,6 @@ public class LoginActivity extends AppCompatActivity {
     private void instanciar() {
         editTextPass = findViewById(R.id.textView_password);
         editTextEmail = findViewById(R.id.textView_email);
-        btnLoguearse = findViewById(R.id.btn_loguearse);
     }
 
     private void inicializar() {

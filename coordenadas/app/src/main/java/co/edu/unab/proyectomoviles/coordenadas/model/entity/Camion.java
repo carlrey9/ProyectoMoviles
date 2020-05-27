@@ -55,7 +55,6 @@ public class Camion {
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
-
     @NonNull
     public String getPlaca() {
         return placa;

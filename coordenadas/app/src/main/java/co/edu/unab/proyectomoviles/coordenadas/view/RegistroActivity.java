@@ -20,7 +20,6 @@ public class RegistroActivity extends AppCompatActivity {
             editTextModelo,
             editTextPlaca,
             editTextSerial;
-    private Button btnRegistrar;
     private Camion camion;
     private CamionDAO camionDAO;
     private BaseDatos db;
@@ -33,20 +32,17 @@ public class RegistroActivity extends AppCompatActivity {
         instanciar();
         inicializar();
 
-        btnRegistrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                camion = new Camion(Integer.parseInt(editTextCapcidad.getText().toString()), //se llena el obj mediante el constructor
-                        editTextMarca.getText().toString(),
-                        editTextModelo.getText().toString(),
-                        editTextPlaca.getText().toString(),
-                        Integer.parseInt(editTextSerial.getText().toString()));
-                camionDAO.agregar(camion); //se agrega a la base de datos local
-                startActivity(new Intent(RegistroActivity.this, MainActivity.class));
-                finish(); //termina la actividad
-            }
-        });
+    }
 
+    public void registrar(View v){
+        camion = new Camion(Integer.parseInt(editTextCapcidad.getText().toString()), //se llena el obj mediante el constructor
+                editTextMarca.getText().toString(),
+                editTextModelo.getText().toString(),
+                editTextPlaca.getText().toString(),
+                Integer.parseInt(editTextSerial.getText().toString()));
+        camionDAO.agregar(camion); //se agrega a la base de datos local
+        startActivity(new Intent(RegistroActivity.this, MainActivity.class));
+        finish(); //termina la actividad
     }
 
     private void instanciar() {
@@ -55,7 +51,6 @@ public class RegistroActivity extends AppCompatActivity {
         editTextModelo = findViewById(R.id.textView_modelo);
         editTextPlaca = findViewById(R.id.textView_placa);
         editTextSerial = findViewById(R.id.textView_serial);
-        btnRegistrar = findViewById(R.id.btnRegistrar);
     }
 
     private void inicializar(){

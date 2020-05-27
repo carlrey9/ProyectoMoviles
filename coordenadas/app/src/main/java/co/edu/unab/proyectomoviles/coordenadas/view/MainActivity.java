@@ -41,12 +41,8 @@ public class MainActivity extends AppCompatActivity {
             textViewHora,
             textViewFecha;
     private int
-            dia,
-            mes,
-            anio,
-            hora,
-            min,
-            seg;
+            dia, mes, anio,
+            hora, min, seg;
     private Time today;
     private Localizacion localizacion;
     private CamionRepository camionRepositorio;
@@ -93,8 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         + localizacion.latitud + "\n Long = " + localizacion.longitud);
                 camionRepositorio.nuevaUbicacion(MainActivity.this, camion, new CallBackFirebase<Camion>() {
                     @Override
-                    public void correcto(Camion respuesta) {
-                    }
+                    public void correcto(Camion respuesta) { }
                 });
 
             }
@@ -106,44 +101,26 @@ public class MainActivity extends AppCompatActivity {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            //verifica si tenemos consedido el permiso de ubicacion y esta activa el gps
+            //verifica si tenemos consedido el permiso de ubicacion y esta activo el gps
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
         } else {
             locationStart();
         }
 
     }
-
-    private void instanciar() {
-        textViewDireccion = findViewById(R.id.textView_direccion);
-        textViewFecha = findViewById(R.id.textView_fecha);
-        textViewHora = findViewById(R.id.textView_hora);
-        textViewUbicacion = findViewById(R.id.textView_ubicacion);
-    }
-
-    private void inicializar() {
-        localizacion = new Localizacion();
-        camionRepositorio = new CamionRepository();
-        db = BaseDatos.obtenerInstancia(this);
-        camionDAO = db.camionDAO();
-    }
-
     private void locationStart() { //metodo para activar el gps
         LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Localizacion Local = new Localizacion();
         Local.setMainActivity(this);
 
-        final boolean gpsEnabled = mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        final boolean gpsHabilitado = mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
         new CountDownTimer(3000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
             }
 
             public void onFinish() {
-                if (gpsEnabled != true) {
-                    Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                    startActivity(settingsIntent);
-                }
+                if (gpsHabilitado != true) startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
             }
         }.start();
 
@@ -185,6 +162,20 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void instanciar() {
+        textViewDireccion = findViewById(R.id.textView_direccion);
+        textViewFecha = findViewById(R.id.textView_fecha);
+        textViewHora = findViewById(R.id.textView_hora);
+        textViewUbicacion = findViewById(R.id.textView_ubicacion);
+    }
+
+    private void inicializar() {
+        localizacion = new Localizacion();
+        camionRepositorio = new CamionRepository();
+        db = BaseDatos.obtenerInstancia(this);
+        camionDAO = db.camionDAO();
     }
 
 }

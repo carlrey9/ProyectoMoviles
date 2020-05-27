@@ -13,7 +13,7 @@ public class Localizacion implements LocationListener {
     private MainActivity mainActivity;
     public static double
             latitud = 0.0,
-            longitud = 3.2;
+            longitud = 0.0;
     public void setMainActivity(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }

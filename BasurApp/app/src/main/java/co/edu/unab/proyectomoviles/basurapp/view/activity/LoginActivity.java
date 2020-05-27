@@ -20,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.List;
 
 import co.edu.unab.proyectomoviles.basurapp.R;
-import co.edu.unab.proyectomoviles.basurapp.model.model.entity.Cliente;
+import co.edu.unab.proyectomoviles.basurapp.model.entity.Cliente;
 import co.edu.unab.proyectomoviles.basurapp.model.repository.ClienteRepository;
 
 public class LoginActivity extends AppCompatActivity {
