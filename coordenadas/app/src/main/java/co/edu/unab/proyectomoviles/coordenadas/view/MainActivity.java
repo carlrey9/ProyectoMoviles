@@ -176,9 +176,10 @@ public class MainActivity extends AppCompatActivity {
                 Geocoder geocoder = new Geocoder(this, Locale.getDefault());
                 List<Address> list = geocoder.getFromLocation(
                         loc.getLatitude(), loc.getLongitude(), 1);
+
                 if (!list.isEmpty()) {
                     Address DirCalle = list.get(0);
-                    textViewDireccion.setText("Mi direccion es: \n" + DirCalle.getAddressLine(0));
+                    //textViewDireccion.setText("Mi direccion es: \n" + DirCalle.getAddressLine(0));
                 }
 
             } catch (IOException e) {

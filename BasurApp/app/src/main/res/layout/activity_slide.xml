@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SlideActivity">
+    tools:context="co.edu.unab.proyectomoviles.basurapp.view.activity.SlideActivity">
 
     <Button
         android:id="@+id/btn_omitir_intro"

@@ -1,5 +1,7 @@
 package co.edu.unab.proyectomoviles.basurapp.model.model.entity;
 
+import com.google.firebase.firestore.GeoPoint;
+
 import java.io.Serializable;
 
 public class Cliente implements Serializable {
@@ -12,6 +14,7 @@ public class Cliente implements Serializable {
     private int edad;
     private String userName;
     private String password;
+    private GeoPoint ubicacionCliente;
 
 
     //private geopoint posicion
@@ -25,6 +28,17 @@ public class Cliente implements Serializable {
         this.edad = edad;
         this.userName = userName;
         this.password = password;
+    }
+
+    public Cliente(String id, String p_nombre, String p_apellido, double celular, int edad, String userName, String password, GeoPoint ubicacionCliente) {
+        this.id = "";
+        this.p_nombre = p_nombre;
+        this.p_apellido = p_apellido;
+        this.celular = celular;
+        this.edad = edad;
+        this.userName = userName;
+        this.password = password;
+        this.ubicacionCliente = ubicacionCliente;
     }
 
     //constructore vacio y con parametros
@@ -90,5 +104,13 @@ public class Cliente implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public GeoPoint getUbicacionCliente() {
+        return ubicacionCliente;
+    }
+
+    public void setUbicacionCliente(GeoPoint ubicacionCliente) {
+        this.ubicacionCliente = ubicacionCliente;
     }
 }
