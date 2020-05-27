@@ -26,7 +26,7 @@ public class Localizacion implements LocationListener {
         latitud = loc.getLatitude();
         longitud = loc.getLongitude();
         Log.d("prueba","gps:"+latitud);
-        this.mapActivity.setLocation(loc);   //------>del metodo setLocation   //pone la direccion
+
 
     }
 

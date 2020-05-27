@@ -1,18 +1,26 @@
 package co.edu.unab.proyectomoviles.basurapp.view.activity;
 
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.provider.Settings;
@@ -29,6 +37,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.firestore.GeoPoint;
+import com.onesignal.OneSignal;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,6 +56,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
     private GoogleMap mMap;
     private int cantidad, aux;
+    private double latiCerca=0;
+    private double longiCerca=0;
     private ArrayList<LatLng> puntos = new ArrayList<>();
     private ArrayList<LatLng> markadores;
     private static double lati = 0.0, longi = 0.0;
@@ -57,6 +68,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private static Cliente cliente;
     private Marker marcador;
     private Localizacion localizacion;
+
+    private PendingIntent pendingIntent;
+    private final static String CHANNEL_ID = "NOTIFICACION";
+    private final static int NOTIFICACION_ID=0;
+    private int cont=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,16 +132,11 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             @Override
             public void onTick(long millisUntilFinished) {
 
-                if (cantidad <= 2){
+                if (cantidad <= 1){
                     agregarUbicacionCliente();
                 }
 
-
                 agregarUbicacionBucaramanga();
-
-
-
-
 
                 if (cantidad < puntos.size()) {
                     //poner un wait para agregar otro punto a la lista y comenzar a trazar la ruta
@@ -194,10 +205,74 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             public void agregarUbicacionBucaramanga(){
                 LatLng bucaramanga = new LatLng(lati, longi);
                 mMap.addMarker(new MarkerOptions().position(bucaramanga).title("Camion :" + cantidad));
+                verificarCercania(lati,longi,latiCliente,longiCliente);
                 if (cantidad <= 1){
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bucaramanga, 17));
                 }
 
+            }
+
+            public void verificarCercania(double lati1, double longi1, double lati2,double longi2){
+                lati1=verificarNegativo(lati1);
+                longi1=verificarNegativo(longi1);
+                lati2=verificarNegativo(lati2);
+                longi2=verificarNegativo(longi2);
+
+                latiCerca = lati1-lati2;
+                longiCerca = longi1-longi2;
+
+                Log.i("POSITIVOS","lats y longs"+lati1+lati2+longi1+longi2);
+
+                latiCerca = verificarNegativo(latiCerca);
+                longiCerca = verificarNegativo(longiCerca);
+
+                if (latiCerca <= 0.00109653 && longiCerca <= 0.00138402){
+                    //enviar notificacion
+
+                    if (cont ==0){
+                        Log.i("NOTIFICACION", "enviar notificacion");
+                        enviarNotificacion();
+                        enviarNotificacionChannel();
+                    }
+
+                }
+
+            }
+
+            public double verificarNegativo(double num){
+                if (num <0.0){
+                    num=num*(-1);
+                }
+                return num;
+            }
+
+            public void enviarNotificacion(){
+                NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),CHANNEL_ID);
+                builder.setSmallIcon(R.drawable.camion_basura);
+                builder.setContentTitle("BasurApp");
+                builder.setContentText("Apurate, el camion de basura está cerca");
+                builder.setColor(Color.GREEN);
+                builder.setPriority(NotificationCompat.PRIORITY_HIGH);
+                builder.setLights(Color.GREEN,1000,1000);
+                builder.setVibrate(new long[]{1000,1000,1000});
+                builder.setDefaults(Notification.DEFAULT_SOUND);
+
+                NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(getApplicationContext());
+                notificationManagerCompat.notify(NOTIFICACION_ID, builder.build());
+                cont++;
+
+            }
+
+            public void enviarNotificacionChannel(){
+                if(Build.VERSION.SDK_INT >=Build.VERSION_CODES.O){
+                    NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(),CHANNEL_ID);
+                    builder.setDefaults(Notification.DEFAULT_SOUND);
+                    CharSequence name = "Notificacion";
+                    NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID,name, NotificationManager.IMPORTANCE_DEFAULT);
+                    NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    notificationManager.createNotificationChannel(notificationChannel);
+
+                }
             }
 
             @Override
@@ -205,29 +280,9 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
             }
 
-
         }.start();
 
     }
-
-
-    public void setLocation(Location loc) {
-        if (loc.getLatitude() != 0.0 && loc.getLongitude() != 0.0) {
-            try {
-                Geocoder geocoder = new Geocoder(this, Locale.getDefault());
-                List<Address> list = geocoder.getFromLocation(
-                        loc.getLatitude(), loc.getLongitude(), 1);
-                /*
-                if (!list.isEmpty()) {
-                    Address DirCalle = list.get(0);
-
-                }
-
-                 */
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }
+
+
