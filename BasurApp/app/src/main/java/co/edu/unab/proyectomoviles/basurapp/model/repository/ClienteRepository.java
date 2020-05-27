@@ -3,7 +3,7 @@ package co.edu.unab.proyectomoviles.basurapp.model.repository;
 import android.content.Context;
 
 import com.google.firebase.firestore.FirebaseFirestore;
-public class ClienteRepository {
+ public class ClienteRepository {
     private String parameterusername;
 
     FirebaseFirestore dbFirestore;
@@ -15,3 +15,4 @@ public class ClienteRepository {
 
 
 }
+

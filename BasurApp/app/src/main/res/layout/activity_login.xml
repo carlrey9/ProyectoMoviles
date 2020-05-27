@@ -5,7 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.activity.LoginActivity">
+    tools:context="co.edu.unab.proyectomoviles.basurapp.view.activity.LoginActivity">
+
+    <Button
+        android:id="@+id/btn_omitir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/texto_boton_omitir" />
 
     <TextView
         android:id="@+id/txv_titulo_presentacion"
@@ -47,10 +53,5 @@
         android:layout_height="wrap_content"
         android:text="@string/texto_boton_registrarse" />
 
-    <Button
-        android:id="@+id/btn_omitir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/texto_boton_omitir" />
 
 </LinearLayout>

@@ -16,9 +16,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import co.edu.unab.proyectomoviles.coordenadas.R;
+import co.edu.unab.proyectomoviles.coordenadas.model.Entity.Camion;
 import co.edu.unab.proyectomoviles.coordenadas.model.db.local.BaseDatos;
 import co.edu.unab.proyectomoviles.coordenadas.model.db.local.CamionDAO;
-import co.edu.unab.proyectomoviles.coordenadas.model.entity.Camion;
 
 public class LoginActivity extends AppCompatActivity {
 

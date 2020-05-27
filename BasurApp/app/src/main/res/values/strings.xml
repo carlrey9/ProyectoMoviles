@@ -1,4 +1,9 @@
 <resources>
+
+    <!--activity Intro-->
+    <string name="texto_txt_siguiente">Siguiente</string>
+    <string name="texto_bienvenida">Bienvenido \na \nBasurApp</string>
+    <!--activity Login-->
     <string name="app_name">BasurApp</string>
     <string name="texto_titulo_presentacion">BasurApp</string>
     <string name="texto_descripcion_presentacion">La app amiga del medio ambiente</string>
@@ -8,16 +13,31 @@
     <string name="texto_boton_registrarse">Registrarse</string>
     <string name="texto_boton_omitir">Omitir</string>
 
+    <!--activity Registro-->
     <string name="texto_nombre">Nombre</string>
     <string name="texto_apellido">Apellido</string>
     <string name="texto_celular">Celular</string>
     <string name="texto_edad">Edad</string>
     <string name="texto_boton_registar">Registrar</string>
 
+    <!--activity home-->
     <string name="boton_ver_camiones">Ver Camiones</string>
     <string name="descripcion_home">Binevenido a BasurApp, Gracias por descargar nuestra aplciación y ayudar al medio ambiente</string>
     <string name="boton_cerrar_sesion">Cerrar Sesion</string>
 
-
+    <!--shader preferences-->
     <string name="mis_datos">BasurApp</string>
+    <string name="mis_datos_primer_ingreso">primerIngreso</string>
+    <string name="mis_datos_primer_ingreso2">primerIngreso2</string>
+
+
+    <!---itemactivity-->
+    <string name="item_activity">itemactivity</string>
+
+    <!---itemactivity-->
+    <string name="btn_Siguiente">btnSiguiente</string>
+    <string name="btn_Anterior">btnAnterior</string>
+    <string name="btn_Regresar">btnAnterior</string>
+    <string name="btn_Regresar1">btnAnterior</string>
+    <string name="title_activity_map">Map</string>
 </resources>

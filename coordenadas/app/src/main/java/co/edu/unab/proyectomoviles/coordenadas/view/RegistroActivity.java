@@ -8,9 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import co.edu.unab.proyectomoviles.coordenadas.R;
+import co.edu.unab.proyectomoviles.coordenadas.model.Entity.Camion;
 import co.edu.unab.proyectomoviles.coordenadas.model.db.local.BaseDatos;
 import co.edu.unab.proyectomoviles.coordenadas.model.db.local.CamionDAO;
-import co.edu.unab.proyectomoviles.coordenadas.model.entity.Camion;
 
 public class RegistroActivity extends AppCompatActivity {
 

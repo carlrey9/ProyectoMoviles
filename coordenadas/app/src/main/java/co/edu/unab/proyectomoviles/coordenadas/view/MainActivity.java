@@ -27,10 +27,10 @@ import java.util.Locale;
 
 import co.edu.unab.proyectomoviles.coordenadas.Localizacion;
 import co.edu.unab.proyectomoviles.coordenadas.R;
+import co.edu.unab.proyectomoviles.coordenadas.model.Entity.Camion;
 import co.edu.unab.proyectomoviles.coordenadas.model.db.local.BaseDatos;
 import co.edu.unab.proyectomoviles.coordenadas.model.db.local.CamionDAO;
-import co.edu.unab.proyectomoviles.coordenadas.model.entity.Camion;
-import co.edu.unab.proyectomoviles.coordenadas.model.db.network.CallBackFirebase;
+import co.edu.unab.proyectomoviles.coordenadas.model.db.local.network.CallBackFirebase;
 import co.edu.unab.proyectomoviles.coordenadas.model.CamionRepository;
 
 public class MainActivity extends AppCompatActivity {

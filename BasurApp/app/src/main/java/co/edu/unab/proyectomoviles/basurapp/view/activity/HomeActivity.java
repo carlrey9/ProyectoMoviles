@@ -8,27 +8,35 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.onesignal.OneSignal;
+
 import co.edu.unab.proyectomoviles.basurapp.R;
 
 public class HomeActivity extends AppCompatActivity {
 
     private Button btnCerrarSesion;
+    private Button btnVercamiones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        oneSignal();
+
         asociarElementos();
+
+        verCamiones();
 
         cerrarSesion();
     }
 
     public void asociarElementos(){
         btnCerrarSesion = findViewById(R.id.btn_cerrar_sesion);
+        btnVercamiones = findViewById(R.id.btn_ver_camiones);
     }
 
-    public void cerrarSesion (){
+    public void cerrarSesion(){
         btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,8 +52,20 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    public void onClick(View view) {
-        Intent miIntent = new Intent(HomeActivity.this, ListaCamionesActivity.class);
-        startActivity(miIntent);
+    public  void verCamiones(){
+        btnVercamiones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(in);
+            }
+        });
+    }
+
+    public void oneSignal(){
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
     }
 }

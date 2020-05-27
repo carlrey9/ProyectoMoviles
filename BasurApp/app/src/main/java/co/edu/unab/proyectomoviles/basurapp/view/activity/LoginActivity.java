@@ -20,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.List;
 
 import co.edu.unab.proyectomoviles.basurapp.R;
-import co.edu.unab.proyectomoviles.basurapp.model.entity.Cliente;
+import co.edu.unab.proyectomoviles.basurapp.model.model.entity.Cliente;
 import co.edu.unab.proyectomoviles.basurapp.model.repository.ClienteRepository;
 
 public class LoginActivity extends AppCompatActivity {
@@ -120,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if ( edtUsername.getText().toString().isEmpty()  || edtPassword.getText().toString().isEmpty()){
-                    Toast.makeText(LoginActivity.this, "Debe completar los campos",Toast.LENGTH_LONG).show();
+                   Toast.makeText(LoginActivity.this, "Debe completar los campos",Toast.LENGTH_LONG).show();
                 }else{
                     firebaseAuth.signInWithEmailAndPassword(edtUsername.getText().toString(), edtPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -156,7 +156,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
+        
          */
     }
 

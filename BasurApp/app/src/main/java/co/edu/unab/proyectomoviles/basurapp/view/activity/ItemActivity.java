@@ -6,16 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import java.util.List;
-
 import co.edu.unab.proyectomoviles.basurapp.R;
 
-public class ListaCamionesActivity extends AppCompatActivity {
+public class ItemActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_camiones);
+        setContentView(R.layout.activity_item);
     }
 
     public void onClick(View view) {
@@ -24,10 +22,11 @@ public class ListaCamionesActivity extends AppCompatActivity {
 
         switch (view.getId()){
             case R.id.btnRegresar:
-                miIntent = new Intent(ListaCamionesActivity.this, HomeActivity.class);
+                miIntent = new Intent(ItemActivity.this, MainActivity.class);
                 break;
-             case R.id
+            case R.id.btnSiguiente:
+                miIntent = new Intent(ItemActivity.this, RegistroActivity.class);
+                break;
         }
-        startActivity(miIntent);
     }
 }
